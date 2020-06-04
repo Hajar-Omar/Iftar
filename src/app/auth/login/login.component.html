@@ -1,0 +1,40 @@
+<div>
+    <h1>Registration</h1>
+    <form class="w-100" [formGroup]="loginForm">
+        <div class="input-filed">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div *ngIf="submitted && loginForm.controls['email'].errors">
+                <span class="feedback-msg text-danger" *ngIf="loginForm.controls['email'].errors.required">email is
+                    required</span>
+                <span class="feedback-msg text-danger" *ngIf="loginForm.controls['email'].errors.email">
+                    email is not valid
+                </span>
+            </div>
+        </div>
+        <div class="input-filed mt-3">
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input autocomplete="on" formControlName="password" type="password" class="form-control"
+                    id="exampleInputPassword1" placeholder="Password">
+            </div>
+
+            <div *ngIf="submitted && loginForm.controls['password'].errors">
+                <span class="feedback-msg text-danger" *ngIf="loginForm.controls['password'].errors.required">password
+                    is required</span>
+                <!-- <span class="feedback-msg text-danger" *ngIf="loginForm.hasError('pattern', ['password'])">
+                    password is not valid
+                </span> -->
+            </div>
+        </div>
+        <button class="w-100 mt-3" (click)="login()" title="Login Account">
+            Login Account
+        </button>
+        <div class="d-flex justify-content-end">
+            <a class="link" (click)="forgetPassword()" title="Create New Account">Create New Account</a>
+        </div>
+    </form>
+</div>
