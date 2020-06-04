@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginForm.get("email").value, this.loginForm.get("password").value).subscribe((d) => {
       this.authService.loggedUser = JSON.stringify(d);
+      localStorage.setItem('loggedUser', this.authService.loggedUser)
       console.log(d)
       // let username = this.loginForm.get("email").value;
       // this.authService.useremail = username.substring(0, username.indexOf("@"));
@@ -45,12 +46,5 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() { }
-
-  forgetPassword() { }
-
-  logOut() {
-    this.authService.logout()
-    this.router.navigate([this.authService.redirectUrl]);
-  }
 
 }

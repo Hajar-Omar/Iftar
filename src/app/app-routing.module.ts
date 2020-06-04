@@ -15,6 +15,11 @@ const routes: Routes = [
       import("./auth/auth.module").then(mod => mod.AuthModule)
   },
   {
+    path: 'media',
+    loadChildren: () =>
+      import("./media/media.module").then(mod => mod.MediaModule)
+  },
+  {
     path: "",
     redirectTo: "",
     pathMatch: "full"
