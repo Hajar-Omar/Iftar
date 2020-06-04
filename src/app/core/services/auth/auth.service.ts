@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { ILogin } from '../../interfaces/login';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  isLoggedIn = false;
+  isLoggedIn = new BehaviorSubject<boolean>(false);
   redirectUrl: string;
   loggedUser: string;
 
@@ -19,7 +18,7 @@ export class AuthService {
 
   IsloggedUser() {
     this.loggedUser = localStorage.getItem('loggedUser');
-    if (localStorage.getItem('loggedUser') !== undefined) this.isLoggedIn = true;
+    if (localStorage.getItem('loggedUser') !== null) this.isLoggedIn.next(true);
   }
 
   login(email: string, password: string): Observable<ILogin> {
@@ -30,9 +29,9 @@ export class AuthService {
   }
 
   logout() {
-    this.isLoggedIn = false;
-    this.loggedUser = ''
-    localStorage.clear()
-    this.redirectUrl = '/auth/login'
+    this.isLoggedIn.next(false);
+    this.loggedUser = '';
+    localStorage.clear();
+    this.redirectUrl = '/auth/login';
   }
 }

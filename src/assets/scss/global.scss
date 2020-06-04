@@ -1,8 +1,24 @@
+body {
+  color: white;
+}
+
+a {
+  cursor: pointer;
+}
 a.nav-link {
   background-color: $primary-color;
   color: white !important;
-  cursor: pointer;
   font-weight: 700;
   font-size: 14px;
   border-radius: 50px;
+}
+
+.btn-primary {
+  &:hover {
+    background-color: $primary-color;
+    color: $black-color;
+    border-color: $primary-color;
+  }
+  border-color: $primary-color;
+  background-color: $primary-color;
 }

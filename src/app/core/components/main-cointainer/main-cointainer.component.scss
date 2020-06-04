@@ -2,4 +2,24 @@
 
 .content {
   background-color: $black-color;
+  h3 {
+    color: white;
+  }
+  hr {
+    height: 3px;
+    width: 50%;
+    background: $primary-color;
+  }
+  h5 {
+    color: white;
+    text-align: end;
+  }
+  .windows {
+    fa-icon {
+      font-size: 60px;
+    }
+    span {
+      font-size: 50px;
+    }
+  }
 }

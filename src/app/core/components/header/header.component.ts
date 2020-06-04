@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isLoggedIn: boolean;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.authService.isLoggedIn.subscribe(d => this.isLoggedIn = d)
   }
 
   logOut() {

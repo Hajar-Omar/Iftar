@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ContainerComponent } from './container/container.component';
+import { AuthModule } from '../auth/auth.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ContainerComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    AuthModule
   ]
 })
 export class HomeModule { }

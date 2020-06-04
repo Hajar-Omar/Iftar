@@ -1,24 +1,21 @@
-<div class="content">
+<div class="content pl-3">
     <div class="d-flex justify-content-between">
-        <div>
-            <h1>
-                <a routerLink="">Think Smarter Instead <br />
-                    Of Lenovo Channel Drive</a>
-            </h1>
+        <div class="d-flex flex-column pt-3">
+            <h3 routerLink=""><strong>Think Smarter Instead</strong> <br>
+                <strong>Of Lenovo Channel Drive</strong>
+            </h3>
+            <hr class="m-0" />
         </div>
-
-        <div>
-            <h4>Smarter
-                Technology
-                For All</h4>
-            <div><img width="40" src="/assets/images/lenovo.png" alt=""></div>
+        <div class="d-flex">
+            <h5 class="p-3">Smarter<br />Technology<br />For All</h5>
+            <img width="50" src="/assets/images/lenovo.png" alt="lenovo">
         </div>
 
     </div>
     <div class="main-content">
         <ng-content></ng-content>
     </div>
-    <div class="d-flex justify-content-start">
-        windows 10
+    <div class="windows d-flex justify-content-start align-items-baseline">
+        <fa-icon class="mr-3" [icon]="faWindows"></fa-icon> <span>Windows 10</span>
     </div>
 </div>

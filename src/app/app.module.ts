@@ -12,15 +12,13 @@ import { FooterComponent } from './core/components/footer/footer.component';
 
 import { AddHeaderInterceptor } from './core/interceptors/http.interceptor';
 import { HttpErrorInterceptor } from './core/interceptors/http-error.interceptor';
-import { MainCointainerComponent } from './core/components/main-cointainer/main-cointainer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     HeaderComponent,
-    FooterComponent,
-    MainCointainerComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,

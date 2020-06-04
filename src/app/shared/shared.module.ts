@@ -4,10 +4,13 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MainCointainerComponent } from '../core/components/main-cointainer/main-cointainer.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MainCointainerComponent
+  ],
   imports: [
     CommonModule,
     FontAwesomeModule,
@@ -17,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   exports: [
     FontAwesomeModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MainCointainerComponent
   ]
 })
 export class SharedModule { }
