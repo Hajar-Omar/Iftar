@@ -3,7 +3,7 @@ export interface IRegister {
     company: string;
     corporateEmail: string;
     fullName: string;
-    keep_updated: number;
+    keep_updated?: number;
     mobileNumber: string;
     password: string;
     title: string;

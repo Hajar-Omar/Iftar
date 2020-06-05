@@ -17,7 +17,11 @@ export class AccountComponent implements OnInit {
   }
 
   loaduserAccount() {
-    this.authService.getUserAccount().subscribe(d => this.userInfo = d.data)
+    this.authService.getUserAccount().subscribe(d => {
+      this.userInfo = d.data;
+      this.authService.account = JSON.stringify(d.data);
+      localStorage.setItem('account', this.authService.account)
+    })
   }
 
 }

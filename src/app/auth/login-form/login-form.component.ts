@@ -13,6 +13,7 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   ishomePage: boolean;
+  error: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,13 +37,17 @@ export class LoginFormComponent implements OnInit {
 
     this.authService.login(this.loginForm.get("email").value, this.loginForm.get("password").value).subscribe((d) => {
       this.authService.loggedUser = JSON.stringify(d);
-      localStorage.setItem('loggedUser', this.authService.loggedUser)
+      this.authService.account = JSON.stringify(d.account);
+      localStorage.setItem('loggedUser', this.authService.loggedUser);
+      localStorage.setItem('account', this.authService.account);
 
       this.authService.isLoggedIn.next(true);
       if (this.authService.isLoggedIn) {
         this.authService.redirectUrl = "";
         this.router.navigate([this.authService.redirectUrl]);
       }
+    }, error => {
+      this.error = error.title;
     });
   }
 

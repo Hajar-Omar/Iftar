@@ -35,18 +35,18 @@ export class SignupComponent implements OnInit {
     if (this.registerForm.invalid) return false;
 
     this.registerForm.get('keep_updated').setValue(this.registerForm.get('keep_updated').value === true ? 1 : 2)
-    console.log(this.registerForm.value)
+
     this.authService.register(this.registerForm.value).subscribe(d => {
       this.authService.loggedUser = JSON.stringify(d);
-      localStorage.setItem('loggedUser', this.authService.loggedUser)
-      console.log(d)
+      this.authService.account = JSON.stringify(d.account);
+      localStorage.setItem('loggedUser', this.authService.loggedUser);
+      localStorage.setItem('account', this.authService.account);
 
       this.authService.isLoggedIn.next(true);
       if (this.authService.isLoggedIn) {
         this.authService.redirectUrl = "";
         this.router.navigate([this.authService.redirectUrl]);
       }
-      // this.authService.IsloggedUser();
     })
   }
 

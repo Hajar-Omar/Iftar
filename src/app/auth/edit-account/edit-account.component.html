@@ -1,0 +1,62 @@
+<app-main-cointainer>
+    <div class="d-flex justify-content-center">
+        <div class="login p-3 pt-5 col-12 col-md-6 col-xl-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Edit My Account</h4>
+                <button class="btn btn-primary">Change Password</button>
+            </div>
+            <form *ngIf="formLength" class="w-100" [formGroup]="accountForm">
+                <div *ngIf="submitted && success" class="alert alert-info feedback-box">
+                    <h4>Done Successfully </h4>
+                </div>
+                <div *ngIf="submitted && accountForm.invalid" class="alert-danger p-3 feedback-box">
+                    <ul>
+                        <li *ngIf="accountForm.controls['fullName'].errors?.required">The name field is required.
+                        </li>
+                        <li *ngIf="accountForm.controls['company'].errors?.required">The company field is required.
+                        </li>
+                        <li *ngIf="accountForm.controls['title'].errors?.required">The title field is required.
+                        </li>
+                        <li *ngIf="accountForm.controls['mobileNumber'].errors?.required">The mobile field is
+                            required.
+                        </li>
+                        <li *ngIf="accountForm.controls['mobileNumber'].errors?.minlength">The phone must be at
+                            least 9
+                            characters.</li>
+                        <li *ngIf="accountForm.controls['corporateEmail'].errors?.required">The email field is
+                            required.
+                        </li>
+                        <li *ngIf="accountForm.controls['corporateEmail'].errors?.email">The email field is not
+                            valid.
+                        </li>
+                        <li *ngIf="accountForm.controls['city'].errors?.required">The city field is required.</li>
+                    </ul>
+                </div>
+
+                <input type="text" formControlName="fullName" class="form-control mt-4" aria-label="Full Name"
+                    placeholder="Full Name">
+
+                <input type="text" formControlName="company" class="form-control mt-4" aria-label="company"
+                    placeholder="Company">
+
+                <input type="text" formControlName="title" class="form-control mt-4" aria-label="title"
+                    placeholder="Title">
+
+                <input type="text" formControlName="mobileNumber" class="form-control mt-4" aria-label="mobile Number"
+                    placeholder="Mobile Number">
+
+                <input type="text" formControlName="city" class="form-control mt-4" aria-label="city"
+                    placeholder="City">
+
+                <input type="email" formControlName="corporateEmail" class="form-control mt-4"
+                    aria-label="corporateEmail" placeholder="Corporate Email">
+
+                <div class="d-flex justify-content-start">
+                    <button class="btn btn-primary mt-3" (click)="saveUserData()" title="Change">
+                        Change
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</app-main-cointainer>

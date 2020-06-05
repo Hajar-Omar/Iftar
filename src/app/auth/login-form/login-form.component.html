@@ -2,8 +2,10 @@
     <h1 class="text-center" *ngIf="ishomePage">Registration</h1>
     <h1 class="text-center" *ngIf="!ishomePage">Login Account</h1>
     <form class="w-100" [formGroup]="loginForm">
+        <span class="alert-danger p-1 mt-1 feedback-box" *ngIf="submitted && error">{{error}}</span>
         <div *ngIf="submitted && loginForm.invalid" class="alert-danger p-3 feedback-box">
             <ul>
+                <li *ngIf="submitted">{{error}}</li>
                 <li *ngIf="loginForm.controls['email'].errors?.required">The email field is
                     required.
                 </li>
