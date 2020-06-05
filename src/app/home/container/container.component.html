@@ -15,3 +15,66 @@
         </div>
     </div>
 </app-main-cointainer>
+
+<div class="paricipate text-center py-3">
+    <h1><strong>Why Participate? </strong></h1>
+    <br>
+    <br>
+    <p>Learn &amp; win lots of prizes</p>
+</div>
+
+<div class="speaker bg-black p-5">
+    <div class="container">
+        <div class="d-flex row no-gutters justify-content-center">
+            <div class="col-6 col-md-2 px-4 mb-3">
+                <a routerLink="/media/elearning"><img class="w-100" src="/assets/images/elearning.png" alt=""></a>
+            </div>
+            <div class="col-6 col-md-2 px-4 mb-3"><a routerLink="/media/videos"><img class="w-100"
+                        src="/assets/images/video.png" alt=""></a>
+            </div>
+            <div class="col-6 col-md-2 px-4 mb-3"><a routerLink="/media/participate"><img class="w-100"
+                        src="/assets/images/howto.png" alt=""></a>
+            </div>
+            <div class="col-6 col-md-2 px-4 mb-3"><a routerLink="/media/events"><img class="w-100"
+                        src="/assets/images/event page icon/eventpage.png" alt=""></a>
+            </div>
+            <div class="col-6 col-md-2 px-4 mb-3">
+                <div class="score">
+                    <h3 class="d-flex text-center">{{userInfo.score}}</h3><img class="w-100"
+                        src="/assets/images/score.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="speader-data text-center">
+            <h1>Speaker</h1>
+            <hr>
+            <p class="speader-name"><strong>{{speaker}}</strong></p>
+            <p>SMB Sales Manager</p>
+        </div>
+    </div>
+</div>
+
+<div class="agenda container" *ngIf="agenda.length">
+    <h1 class="py-3 text-center"><strong>Agenda</strong> </h1>
+    <hr>
+    <div class="row" *ngFor="let item of agenda">
+        <div class="col-lg-4">
+            <div class="time-agenda text-right p-2">
+                <h3>{{item.time_from}} – {{item.time_to}}</h3>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="p-2 text-left">
+                <h3><strong>{{item.name}}</strong></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="activity text-center py-3">
+    <div class="container">
+        <h1><strong>Activities</strong></h1>
+        <hr>
+        <p>Enjoy with Lenovo activities offered and compete</p>
+    </div>
+</div>

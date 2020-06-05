@@ -57,3 +57,45 @@ a.nav-link {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: $primary-color;
 }
+
+.bg-black {
+  background-color: $black-color;
+}
+.score {
+  h3 {
+    color: white;
+    position: absolute;
+    top: 45%;
+    left: 36%;
+    font-weight: 700 !important;
+  }
+}
+
+.paricipate {
+  p,
+  h1 {
+    color: $black-color;
+  }
+  p {
+    font-size: 40px;
+  }
+}
+
+.activity,
+.agenda {
+  h1,
+  h3,
+  strong {
+    color: $black-color;
+  }
+}
+
+.activity {
+  background-color: $light-grey;
+  strong {
+    color: white;
+  }
+  p {
+    font-size: 30px;
+  }
+}
