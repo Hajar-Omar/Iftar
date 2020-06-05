@@ -1,1 +1,90 @@
-<p>signup works!</p>
+<app-main-cointainer>
+    <div class="d-flex justify-content-center">
+        <div class=" col-12 col-lg-6 col-xl-4">
+            <div class="login p-5">
+                <h1 class="text-center">Registration</h1>
+                <form class="w-100" [formGroup]="registerForm">
+                    <div *ngIf="submitted && registerForm.invalid" class="alert-danger p-3 feedback-box">
+                        <ul>
+                            <li *ngIf="registerForm.controls['fullName'].errors?.required">The name field is required.
+                            </li>
+                            <li *ngIf="registerForm.controls['company'].errors?.required">The company field is required.
+                            </li>
+                            <li *ngIf="registerForm.controls['title'].errors?.required">The title field is required.
+                            </li>
+                            <li *ngIf="registerForm.controls['mobileNumber'].errors?.required">The mobile field is
+                                required.
+                            </li>
+                            <li *ngIf="registerForm.controls['mobileNumber'].errors?.minlength">The phone must be at
+                                least 9
+                                characters.</li>
+                            <li *ngIf="registerForm.controls['corporateEmail'].errors?.required">The email field is
+                                required.
+                            </li>
+                            <li *ngIf="registerForm.controls['corporateEmail'].errors?.email">The email field is not
+                                valid.
+                            </li>
+                            <li *ngIf="registerForm.controls['password'].errors?.required">The password field is
+                                required.
+                            </li>
+                            <li *ngIf="registerForm.controls['password'].errors?.minlength">The password must be at
+                                least
+                                6
+                                characters.</li>
+                            <li *ngIf="registerForm.controls['city'].errors?.required">The city field is required.</li>
+                        </ul>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 col-md-6 px-1">
+                            <input type="text" formControlName="fullName" class="form-control" aria-label="Full Name"
+                                placeholder="Full Name">
+                        </div>
+                        <div class="col-12 col-md-6 px-1">
+                            <input type="text" formControlName="company" class="form-control" aria-label="company"
+                                placeholder="Company">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 col-md-6 px-1">
+                            <input type="text" formControlName="title" class="form-control" aria-label="title"
+                                placeholder="Title">
+                        </div>
+                        <div class="col-12 col-md-6 px-1">
+                            <input type="text" formControlName="mobileNumber" class="form-control"
+                                aria-label="mobile Number" placeholder="Mobile Number">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 col-md-6 px-1">
+                            <input type="email" formControlName="corporateEmail" class="form-control"
+                                aria-label="corporateEmail" placeholder="Corporate Email">
+                        </div>
+                        <div class="col-12 col-md-6 px-1">
+                            <input autocomplete="on" type="password" formControlName="password" class="form-control"
+                                aria-label="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 col-md-6 px-1">
+                            <input type="text" formControlName="city" class="form-control" aria-label="city"
+                                placeholder="City">
+                        </div>
+                    </div>
+                    <div class="custom-control form-control-lg custom-checkbox mt-4">
+                        <input type="checkbox" class="custom-control-input" formControlName="keep_updated"
+                            id="keep_updated">
+                        <label class="custom-control-label" for="keep_updated">Please Keep Me
+                            Informed on Product updates,
+                            Promotion and Events From Lenovo.</label>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary mt-3" (click)="register()" title="Register Now">
+                            Register Now
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</app-main-cointainer>

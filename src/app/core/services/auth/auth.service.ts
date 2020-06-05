@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { ILogin } from '../../interfaces/login';
+import { IRegister } from '../../interfaces/register';
+import { IAccount } from '../../interfaces/account';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +35,20 @@ export class AuthService {
     this.loggedUser = '';
     localStorage.clear();
     this.redirectUrl = '/auth/login';
+  }
+
+  register(formData: IRegister): Observable<ILogin> {
+    return this.httpClient.post<ILogin>(`${environment.API_base}auth/register`, {
+      name: formData.fullName,
+      email: formData.corporateEmail,
+      company: formData.company,
+      title: formData.title,
+      country: formData.city, phone: formData.mobileNumber,
+      keep_updated: formData.keep_updated, password: formData.password
+    })
+  }
+
+  getUserAccount(): Observable<IAccount> {
+    return this.httpClient.get<IAccount>(`${environment.API_base}account/me`)
   }
 }

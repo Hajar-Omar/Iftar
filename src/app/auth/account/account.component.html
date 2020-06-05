@@ -1,1 +1,17 @@
-<p>account works!</p>
+<app-main-cointainer>
+    <div class="d-flex justify-content-center">
+        <div class="account p-3 pt-5 col-12 col-md-6 col-xl-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>My Account</h4>
+                <button class="btn btn-primary">Edit My Account</button>
+            </div>
+            <p class="pb-3" *ngIf="userInfo.name">Name: {{userInfo.name}}</p>
+            <p class="pb-3" *ngIf="userInfo.email">Email Address: {{userInfo.email}}</p>
+            <p class="pb-3" *ngIf="userInfo.score">Score: {{userInfo.score}}</p>
+            <p class="pb-3" *ngIf="userInfo.company">Company: {{userInfo.company}}</p>
+            <p class="pb-3" *ngIf="userInfo.country">City: {{userInfo.country}}</p>
+            <p class="pb-3" *ngIf="userInfo.title">Title: {{userInfo.title}}</p>
+            <p class="pb-3" *ngIf="userInfo.phone">Phone: {{userInfo.phone}}</p>
+        </div>
+    </div>
+</app-main-cointainer>

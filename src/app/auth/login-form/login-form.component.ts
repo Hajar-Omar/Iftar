@@ -24,6 +24,7 @@ export class LoginFormComponent implements OnInit {
       email: new FormControl("", [Validators.required, Validators.email]),
       password: new FormControl("", [
         Validators.required,
+        Validators.minLength(6)
         // Validators.pattern(/^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/)
       ])
     });
@@ -36,9 +37,7 @@ export class LoginFormComponent implements OnInit {
     this.authService.login(this.loginForm.get("email").value, this.loginForm.get("password").value).subscribe((d) => {
       this.authService.loggedUser = JSON.stringify(d);
       localStorage.setItem('loggedUser', this.authService.loggedUser)
-      console.log(d)
-      // let username = this.loginForm.get("email").value;
-      // this.authService.useremail = username.substring(0, username.indexOf("@"));
+
       this.authService.isLoggedIn.next(true);
       if (this.authService.isLoggedIn) {
         this.authService.redirectUrl = "";

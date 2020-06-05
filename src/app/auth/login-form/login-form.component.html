@@ -1,18 +1,29 @@
 <div class="login p-5">
-    <h1 *ngIf="ishomePage">Registration</h1>
-    <h1 *ngIf="!ishomePage">Login Account</h1>
+    <h1 class="text-center" *ngIf="ishomePage">Registration</h1>
+    <h1 class="text-center" *ngIf="!ishomePage">Login Account</h1>
     <form class="w-100" [formGroup]="loginForm">
+        <div *ngIf="submitted && loginForm.invalid" class="alert-danger p-3 feedback-box">
+            <ul>
+                <li *ngIf="loginForm.controls['email'].errors?.required">The email field is
+                    required.
+                </li>
+                <li *ngIf="loginForm.controls['email'].errors?.email">The email field is not
+                    valid.
+                </li>
+                <li *ngIf="loginForm.controls['password'].errors?.required">The password field is
+                    required.
+                </li>
+                <li *ngIf="loginForm.controls['password'].errors?.minlength">The password must be at
+                    least
+                    6
+                    characters.</li>
+            </ul>
+        </div>
+
         <div class="input-filed mt-5">
             <div class="form-group">
                 <input type="email" formControlName="email" class="form-control" aria-describedby="emailHelp"
                     placeholder="Email Address">
-            </div>
-            <div *ngIf="submitted && loginForm.controls['email'].errors">
-                <span class="feedback-msg text-danger" *ngIf="loginForm.controls['email'].errors.required">email is
-                    required</span>
-                <span class="feedback-msg text-danger" *ngIf="loginForm.controls['email'].errors.email">
-                    email is not valid
-                </span>
             </div>
         </div>
         <div class="input-filed mt-4">
@@ -20,14 +31,9 @@
                 <input autocomplete="on" formControlName="password" type="password" class="form-control"
                     placeholder="Password">
             </div>
-
-            <div *ngIf="submitted && loginForm.controls['password'].errors">
-                <span class="feedback-msg text-danger" *ngIf="loginForm.controls['password'].errors.required">password
-                    is required</span>
-                <!-- <span class="feedback-msg text-danger" *ngIf="loginForm.hasError('pattern', ['password'])">
+            <!-- <span class="feedback-msg text-danger" *ngIf="loginForm.hasError('pattern', ['password'])">
                     password is not valid
                 </span> -->
-            </div>
         </div>
         <button class="btn btn-primary w-100 mt-3" (click)="login()" title="Login Account">
             Login Account

@@ -14,11 +14,46 @@ a.nav-link {
 }
 
 .btn-primary {
-  &:hover {
-    background-color: $primary-color;
+  &:hover,
+  &:focus {
+    background-color: $primary-color !important;
     color: $black-color;
     border-color: $primary-color;
   }
   border-color: $primary-color;
+  background-color: $primary-color;
+}
+
+.login {
+  background-color: $grey-color;
+  border-bottom: 10px solid $primary-color;
+  .link {
+    color: white;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $black-color;
+    }
+  }
+}
+
+.feedback-box {
+  border-radius: 30px;
+}
+.custom-control-label {
+  font-size: 16px;
+}
+.custom-control-label:before {
+  background-color: $black-color;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $primary-color;
+}
+
+.custom-control-input:active ~ .custom-control-label::before {
+  background-color: $primary-color;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: $primary-color;
 }

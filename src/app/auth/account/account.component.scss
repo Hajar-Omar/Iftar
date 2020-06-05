@@ -1,0 +1,11 @@
+@import "../../../assets/scss/vars.scss";
+
+.account {
+  background-color: $light-black;
+  p {
+    border-bottom: 1px solid $black-color;
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
