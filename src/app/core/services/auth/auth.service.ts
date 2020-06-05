@@ -68,4 +68,11 @@ export class AuthService {
       phone: formData.mobileNumber,
     })
   }
+
+  changePassword(current_password: string, password: string) {
+    return this.httpClient.post(`${environment.API_base}account/update-password`, {
+      current_password: current_password,
+      password: password
+    })
+  }
 }

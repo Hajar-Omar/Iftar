@@ -47,7 +47,7 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate([this.authService.redirectUrl]);
       }
     }, error => {
-      this.error = error.title;
+      this.error = error.error.title;
     });
   }
 
