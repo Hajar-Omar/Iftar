@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
-import { IAccount } from 'src/app/core/interfaces/login';
+import { IUser } from 'src/app/core/interfaces/login';
 import { HomeService } from 'src/app/core/services/home/home.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { HomeService } from 'src/app/core/services/home/home.service';
 export class ContainerComponent implements OnInit {
 
   isLoggedIn = false;
-  userInfo: IAccount;
+  userInfo: IUser;
   agenda = [];
   speaker = '';
 
