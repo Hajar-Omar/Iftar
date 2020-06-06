@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ITraining } from 'src/app/core/interfaces/training';
 import { MediaService } from 'src/app/core/services/media/media.service';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-elearning',
@@ -12,11 +11,8 @@ export class ElearningComponent implements OnInit {
 
   trainings: ITraining[] = [];
   questions = [];
-  questionsForm: FormGroup = new FormGroup({})
-  error: string;
-  success: string;
 
-  constructor(private mediaService: MediaService, private formBuilder: FormBuilder) { }
+  constructor(private mediaService: MediaService) { }
 
   ngOnInit() {
     this.loadTrainings();
@@ -28,24 +24,7 @@ export class ElearningComponent implements OnInit {
   }
 
   loadElearningQuestions() {
-    let group = {}
-    this.mediaService.getElearningQuestions().subscribe(d => {
-      this.questions.push(...d.data);
-      d.data.map(e => {
-        group[`quest${e.id}`] = new FormControl(0, [Validators.required])
-      })
-      this.questionsForm = new FormGroup(group)
-    })
-  }
-
-  submitAnswer(qId: string) {
-    this.mediaService.postAnAnswer(+qId, +this.questionsForm.value[`quest${qId}`]).subscribe(d => {
-      this.success = d['title'];
-      this.error = '';
-    }, error => {
-      this.error = error.error.title;
-      this.success = '';
-    })
+    this.mediaService.getElearningQuestions().subscribe(d => this.questions.push(...d.data))
   }
 
 }

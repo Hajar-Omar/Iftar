@@ -5,11 +5,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainCointainerComponent } from '../core/components/main-cointainer/main-cointainer.component';
-
+import { QuestionsComponent } from '../core/components/questions/questions.component';
 
 @NgModule({
   declarations: [
-    MainCointainerComponent
+    MainCointainerComponent,
+    QuestionsComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +22,8 @@ import { MainCointainerComponent } from '../core/components/main-cointainer/main
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MainCointainerComponent
+    MainCointainerComponent,
+    QuestionsComponent
   ]
 })
 export class SharedModule { }

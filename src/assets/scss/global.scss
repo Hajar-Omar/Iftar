@@ -156,9 +156,21 @@ a.nav-link {
   width: 100%;
 }
 .answer-data label input:checked + span:before {
-  background-color: #fb5f00;
+  background-color: $primary-color;
 }
 
 img {
   max-width: 100%;
+}
+.theme-box {
+  padding: 1rem;
+  background-color: $primary-color;
+}
+.bg-white {
+  background-color: white;
+  color: $black-color;
+}
+
+iframe {
+  border: none;
 }

@@ -4,6 +4,7 @@ import { ITraining } from '../../interfaces/training';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IQuestionsRes } from '../../interfaces/question';
+import { IVideo } from '../../interfaces/video';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class MediaService {
       question: qID,
       answer_id: ansID
     })
-    ///questions/{question}/send-answer
   }
+
+  getVideo(): Observable<IVideo> {
+    return this.httpClient.get<IVideo>(`${environment.API_base}videos/single-video`)
+  }
+
 }

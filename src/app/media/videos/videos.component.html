@@ -1,1 +1,17 @@
-<p>videos works!</p>
+<app-main-cointainer>
+    <div class="row justify-content-center no-gutters">
+        <div class="d-flex col-12 col-md-7">
+            <div *ngIf="video" class="p-5 w-100">
+                <iframe width="100%" height="400" [src]="url">
+                </iframe>
+                <div class="theme-box mt-5">Info Video</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-3 my-3">
+        <h1 class="text-center">ACTIVITIES</h1>
+    </div>
+    <app-questions *ngIf="questions.length" [questions]="questions"></app-questions>
+
+</app-main-cointainer>
