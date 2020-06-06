@@ -13,6 +13,7 @@ export class AuthService {
   redirectUrl: string;
   loggedUser: string;
   account: string;
+  private refreshTokenTimeout: ReturnType<typeof setTimeout>;
 
   constructor(private httpClient: HttpClient) {
     this.IsloggedUser();
@@ -37,6 +38,7 @@ export class AuthService {
     this.account = '';
     localStorage.clear();
     this.redirectUrl = '/auth/login';
+    this.stopRefreshTokenTimer();
   }
 
   register(formData: IRegister): Observable<ILogin> {
@@ -74,5 +76,24 @@ export class AuthService {
       current_password: current_password,
       password: password
     })
+  }
+
+  startRefreshTokenTimer() {
+    const jwtToken = JSON.parse(atob(JSON.parse(localStorage.getItem('loggedUser'))['access_token'].split('.')[1]));
+
+    const expires = new Date(jwtToken.exp * 1000);
+    const timeout = expires.getTime() - Date.now() - (60 * 1000);
+    // const timeout = new Date(expires.setMinutes(expires.getMinutes() - 58)).getTime() - Date.now() - (60 * 1000);
+
+    this.refreshTokenTimeout = setTimeout(() => this.refreshToken().subscribe(d => {
+      this.loggedUser = JSON.stringify(d);
+      localStorage.setItem('loggedUser', this.loggedUser);
+      this.isLoggedIn.next(true);
+      this.startRefreshTokenTimer()
+    }), timeout);
+  }
+
+  private stopRefreshTokenTimer() {
+    clearTimeout(this.refreshTokenTimeout);
   }
 }

@@ -5,13 +5,14 @@ import {
   HttpRequest,
   HttpErrorResponse
 } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
+import { Observable, throwError, BehaviorSubject } from "rxjs";
 import { retry, catchError } from "rxjs/operators";
 import { Injectable, Injector } from "@angular/core";
 import { AuthService } from '../services/auth/auth.service';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
+
   constructor(private injector: Injector, private authService: AuthService) { }
 
   intercept(
@@ -32,13 +33,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             // connectionError
             console.log("connectionError");
           }
-
-          // if (error.status === 401 && !error.error.title.includes('Or')) {
-          //   console.log('heeeeor');
-          //   this.authService.refreshToken().subscribe(d => {
-          //     console.log('yes', d)
-          //   })
-          // }
         }
         console.log(errorMessage);
         return throwError(error);

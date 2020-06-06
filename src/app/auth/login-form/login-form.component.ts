@@ -46,6 +46,7 @@ export class LoginFormComponent implements OnInit {
         this.authService.redirectUrl = "";
         this.router.navigate([this.authService.redirectUrl]);
       }
+      this.authService.startRefreshTokenTimer()
     }, error => {
       this.error = error.error.title;
     });
