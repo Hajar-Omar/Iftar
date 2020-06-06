@@ -30,10 +30,21 @@ a.nav-link {
   .link {
     color: white;
     text-decoration: none;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      border-radius: 5px;
+      background-color: $light-grey;
+      padding: 0.7rem;
+      text-align: center;
+    }
     &:hover,
     &:focus {
       color: $black-color;
     }
+  }
+  @media screen and (max-width: 767px) {
+    background-color: transparent;
+    border-bottom: none;
   }
 }
 
@@ -188,4 +199,11 @@ iframe {
 }
 .remainings {
   background-color: $dark-black;
+}
+button.navbar-toggler {
+  outline: none;
+  border: none;
+  &:focus {
+    border: none;
+  }
 }

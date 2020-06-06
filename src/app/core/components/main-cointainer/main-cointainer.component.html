@@ -1,12 +1,12 @@
 <div class="content pl-3">
-    <div class="d-flex justify-content-between">
-        <div class="d-flex flex-column pt-3">
+    <div class="d-flex justify-content-between flex-wrap">
+        <div class="d-flex col-12 col-md-4 flex-column pt-3 px-0">
             <h3 routerLink=""><strong>Think Smarter Instead</strong> <br>
                 <strong>Of Lenovo Channel Drive</strong>
             </h3>
             <hr class="m-0" />
         </div>
-        <div class="d-flex">
+        <div class="d-flex col-12 col-md-4 justify-content-end px-0">
             <h5 class="p-3">Smarter<br />Technology<br />For All</h5>
             <img width="50" src="/assets/images/lenovo.png" alt="lenovo">
         </div>
@@ -15,7 +15,16 @@
     <div class="main-content">
         <ng-content></ng-content>
     </div>
-    <div class="windows d-flex justify-content-start align-items-baseline">
+    <div class="windows row-wrap no-gutters align-items-end d-flex justify-content-between mt-5">
+        <div class="col-4 col-md-2 col-lg-1 p-0">
+            <img src="/assets/images/ram.png" alt="Ramadan Kareem">
+        </div>
+        <div class="col-6 col-md-6 col-lg-2 p-0">
+            <h4 class="text-right">Ramadan Kareem</h4>
+            <h4 class="text-right">رمضان كريم</h4>
+        </div>
+        <!-- <div class="windows d-flex justify-content-start align-items-baseline mt-5">
         <fa-icon class="mr-3" [icon]="faWindows"></fa-icon> <span>Windows 10</span>
+        </div> -->
     </div>
 </div>
