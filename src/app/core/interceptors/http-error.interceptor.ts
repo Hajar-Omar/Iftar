@@ -33,12 +33,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             console.log("connectionError");
           }
 
-          if (error.status === 401 && !error.error.title.includes('Or')) {
-            console.log('heeeeor');
-            this.authService.refreshToken().subscribe(d => {
-              console.log('yes', d)
-            })
-          }
+          // if (error.status === 401 && !error.error.title.includes('Or')) {
+          //   console.log('heeeeor');
+          //   this.authService.refreshToken().subscribe(d => {
+          //     console.log('yes', d)
+          //   })
+          // }
         }
         console.log(errorMessage);
         return throwError(error);

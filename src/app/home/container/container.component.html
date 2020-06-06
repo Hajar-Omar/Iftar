@@ -38,7 +38,7 @@
             <div class="col-6 col-md-2 px-4 mb-3"><a routerLink="/media/events"><img class="w-100"
                         src="/assets/images/event page icon/eventpage.png" alt=""></a>
             </div>
-            <div class="col-6 col-md-2 px-4 mb-3">
+            <div class="col-6 col-md-2 px-4 mb-3" *ngIf="userInfo">
                 <div class="score">
                     <h3 class="d-flex text-center">{{userInfo.score}}</h3><img class="w-100"
                         src="/assets/images/score.png" alt="">

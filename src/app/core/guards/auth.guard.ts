@@ -11,7 +11,7 @@ import { AuthService } from "../services/auth/auth.service";
   providedIn: "root"
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -22,13 +22,10 @@ export class AuthGuard implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    if (this.authService.isLoggedIn) {
-      return true;
-    }
-
+    if (localStorage.getItem('loggedUser') !== null) return true;
     this.authService.redirectUrl = url;
 
-    this.router.navigate(["/login"]);
+    this.router.navigate(["auth/login"]);
     return false;
   }
 }

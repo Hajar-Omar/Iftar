@@ -10,12 +10,13 @@ import { AuthGuard } from '../core/guards/auth.guard';
 const routes: Routes = [
   {
     path: 'elearning',
-    component: ElearningComponent
+    component: ElearningComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'videos',
     component: VideosComponent,
-    // canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'participate',
