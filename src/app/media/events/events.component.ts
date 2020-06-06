@@ -19,7 +19,6 @@ export class EventsComponent implements OnInit {
 
   loadSetting() {
     this.homeService.getSettings().subscribe(d => {
-      console.log(d)
       this.event = d;
     })
   }

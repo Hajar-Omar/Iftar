@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Cairo";
+  src: url("./assets/fonts/Cairo-Light.ttf") format("embedded-opentype");
+  src: url("./assets/fonts/Cairo-Light.woff") format("embedded-opentype");
+  src: url("./assets/fonts/Cairo-Light.eot") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+body,
+html {
+  font-family: "Cairo", sans-serif;
+}
 @import "./assets/scss/vars.scss";
 @import "./assets/scss/global.scss";
