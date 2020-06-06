@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/core/services/home/home.service';
+import { ISetting } from 'src/app/core/interfaces/setting';
 
 @Component({
   selector: 'app-events',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() { }
+  event: ISetting;
+
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.loadSetting();
+  }
+
+  loadSetting() {
+    this.homeService.getSettings().subscribe(d => {
+      console.log(d)
+      this.event = d;
+    })
   }
 
 }

@@ -174,3 +174,18 @@ img {
 iframe {
   border: none;
 }
+.btn-radius {
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.agenda {
+  background-color: $dark-black;
+  h4,
+  strong {
+    color: white;
+  }
+}
+.remainings {
+  background-color: $dark-black;
+}

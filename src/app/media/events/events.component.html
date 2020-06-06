@@ -1,1 +1,62 @@
-<p>events works!</p>
+<app-main-cointainer>
+    <div class="row no-gutters justify-content-center" *ngIf="event">
+        <div class="col-12 col-md-6 col-xl-5 mt-5">
+            <div class="w-100 text-center">
+                <a href="{{event.setting.extra_link}}" target="_blank" class="btn btn-primary mb-4 btn-radius">Stay
+                    Tuned!!</a>
+                <p>Once the countdown ends, a link will reveal to access the event</p>
+            </div>
+            <div class="row no-gutters flex-wrap">
+                <div class="col-12 col-md-3 px-3">
+                    <div class="remainings py-3 text-center">
+                        <span>DAYS</span>
+                        <h3>{{event.setting.remaining_time}}</h3>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3 px-3">
+                    <div class="remainings py-3 text-center">
+                        <span>HOURS</span>
+                        <h3>{{event.setting.remaining_time}}</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 px-3">
+                    <div class="remainings py-3 text-center">
+                        <span>MINUTES</span>
+                        <h3>{{event.setting.remaining_time}}</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 px-3">
+                    <div class="remainings py-3 text-center">
+                        <span>SECONDS</span>
+                        <h3>{{event.setting.remaining_time}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="data-event-e text-left mt-5 mb-5 pt-3 pb-3">
+                <h4>Event Date : {{event.setting.date}}</h4>
+                <br>
+                <h4>Event Time : {{event.setting.time}}</h4>
+                <br>
+                <h4>Speaker : {{event.setting.speaker}}</h4>
+            </div>
+
+            <div class="agenda mb-5">
+                <h1 class="text-center p-2"><strong>Agenda</strong></h1>
+                <hr />
+                <div class="row no-gutters" *ngFor="let item of event.agenda">
+                    <div class="col-lg-4">
+                        <div class="time-agenda p-2">
+                            <h4 class="text-start">{{item.time_from}} – {{item.time_to}}</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="p-2">
+                            <h4><strong>{{item.name}}</strong></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-main-cointainer>
